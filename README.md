@@ -41,5 +41,5 @@ A **RESTful API** for a Library Management System built using **Express**, **Typ
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/library-management-api.git
+git clone https://github.com/omurrifat/library-management-api.git
 cd library-management-api
