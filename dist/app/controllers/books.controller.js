@@ -86,7 +86,7 @@ exports.booksRouter.get('/:bookId', (req, res, next) => __awaiter(void 0, void 0
 exports.booksRouter.put('/:bookId', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const bookId = req.params.bookId;
-        const book = yield books_model_1.Book.findByIdAndUpdate(bookId, req.body, { new: true, runValidators: true });
+        const book = yield books_model_1.Book.findOneAndUpdate({ _id: bookId }, req.body, { new: true, runValidators: true });
         if (book) {
             res.status(200).json({
                 success: true,
