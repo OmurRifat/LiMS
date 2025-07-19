@@ -11,11 +11,19 @@ app.use(express_1.default.json());
 app.use("/api/books", books_controller_1.booksRouter);
 app.use("/api/borrow", borrow_controller_1.borrowRouter);
 app.get('/', (req, res) => {
-    // console.log("request", req);
     res.status(200).send('Hello, World!');
 });
 app.use((req, res, next) => {
-    res.status(404).send('Route not found');
+    res.status(404).json({
+        success: false,
+        message: "API endpoint not found",
+        error: {
+            statusCode: 404,
+            path: req.originalUrl,
+            method: req.method,
+            description: "The requested route does not exist on the server."
+        }
+    });
 });
 app.use((err, req, res, next) => {
     res.status(400).json({
